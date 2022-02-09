@@ -3,9 +3,9 @@
 "type":"mysql",
 "host":"localhost",
 "port": 3306,
-"username":"root",
-"password":"",
-"database":"adabox_db", 
+"username":"qrmaniac_cea_dba",
+"password":"Vz1#*oPMMbaY",
+"database":"qrmaniac_teste", 
 "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
 "entities": ["./src/modules/**/entities/*.ts"],
 "cli": {
