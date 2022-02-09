@@ -4,8 +4,8 @@ import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
 import  createConnection  from '@shared/infra/typeorm';
-import "../../container";
-import swaggerFile from '../../../../swagger.json';
+//import "../../container";
+import swaggerFile from '../../../swagger.json';
 
 
 import { router } from './routes';
