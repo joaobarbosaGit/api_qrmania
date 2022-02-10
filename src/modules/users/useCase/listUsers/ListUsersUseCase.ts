@@ -9,13 +9,13 @@ class ListAllUsersUseCase{
     constructor(
 
     @inject("UsersRepository")
-    private UsersRepository: IUsersRepository){};
+    private usersRepository: IUsersRepository){};
 
     async execute() : Promise< Users[]> {
 
-       const Users = await this.UsersRepository.listAllUsersActives();
+       const users = await this.usersRepository.listAllUsersActives();
 
-       return Users;
+       return users;
     }
 }
 
