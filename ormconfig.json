@@ -7,7 +7,7 @@
 "password":"Vz1#*oPMMbaY",
 "database":"qrmaniac_teste", 
 "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
-"entities": ["./src/modules/**/entities/*.ts"],
+"entities": ["./src/modules/**/entities/*.ts", "./src/modules/**/entities/*.js"],
 "cli": {
     "migrationsDir": "./src/shared/infra/typeorm/migrations"
 }
