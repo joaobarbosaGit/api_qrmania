@@ -3,7 +3,7 @@ import { Users } from "../infra/typeorm/entities/Users";
 
 interface IUsersRepository {
     // create(data: ICreateUsersDTO) : Promise<void>;
-    // findbyEmail(Email: string): Promise<Users>;
+    findUserbyEmail(email: string): Promise<Users>;
     // findById(idUsers: string): Promise<Users>;
     // listAllUsers(): Promise<Users[]>
     listAllUsersActives() : Promise<Users[]>

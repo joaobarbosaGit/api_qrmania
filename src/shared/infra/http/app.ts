@@ -4,7 +4,7 @@ import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
 import  createConnection  from '@shared/infra/typeorm';
-import "../../container";
+import "@shared/conteiner";
 import swaggerFile from '../../../swagger.json';
 
 

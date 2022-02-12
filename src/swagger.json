@@ -7,6 +7,33 @@
     "contact": {
       "email":"engjoaobarbosa@gmail.com.br"
     }
+  },
+  "paths": {
+    "/users/findEmail": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Confirm user email",
+        "description": "Confirm user email",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Email Does not Exist"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
   }
+  
  
 }
