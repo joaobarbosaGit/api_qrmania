@@ -6,8 +6,8 @@
 "username":"qrmaniac_cea_dba",
 "password":"Vz1#*oPMMbaY",
 "database":"qrmaniac_teste", 
-"migrations": ["./src/shared/infra/typeorm/migrations/*.js"],
-"entities": ["./src/modules/**/entities/*.js"],
+"migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
+"entities": ["./src/modules/**/entities/*.ts"],
 "cli": {
     "migrationsDir": "./src/shared/infra/typeorm/migrations"
 }

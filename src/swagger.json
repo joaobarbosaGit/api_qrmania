@@ -23,6 +23,37 @@
           }
         }
       }
+    },"/pontos/countpontuacao": {
+      "post": {
+        "tags": ["Score"],
+        "summary": "Check score by user",
+         "description": "Check score by user",
+         "security": [
+          { "bearerAuth": []}
+         ],
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "user_id": {
+                     "type": "number"
+                   }
+                 },
+                 "example": {
+                   "user_id": "1"
+                 }
+               }
+             }
+           }
+         },
+         "responses": {
+           "200": {
+             "description": "Sucess"
+           }
+         }
+      }
     }
   },
   "components": {

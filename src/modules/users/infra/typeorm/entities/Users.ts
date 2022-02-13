@@ -1,7 +1,5 @@
 import { Cidades } from "@modules/cities/infra/typeorm/entities/Cidades";
-import { Lojista_Dados } from "@modules/lojista/infra/typeorm/entities/lojista_dados";
-import { Column, Entity, JoinColumn, JoinTable, ManyToOne, OneToOne, PrimaryColumn } from "typeorm";
-import { Users_Rules } from "./Users_Rules";
+import { Column, Entity, JoinColumn, ManyToOne,  PrimaryColumn } from "typeorm";
 
  
 @Entity("users")
