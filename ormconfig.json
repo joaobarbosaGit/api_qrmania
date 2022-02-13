@@ -6,10 +6,10 @@
 "username":"qrmaniac_cea_dba",
 "password":"Vz1#*oPMMbaY",
 "database":"qrmaniac_teste", 
-"migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
-"entities": ["./src/modules/**/entities/*.ts"],
+"migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
+"entities": ["./dist/modules/**/entities/*.js"],
 "cli": {
-    "migrationsDir": "./src/shared/infra/typeorm/migrations"
+    "migrationsDir": "./dist/shared/infra/typeorm/migrations"
 }
 
 }
