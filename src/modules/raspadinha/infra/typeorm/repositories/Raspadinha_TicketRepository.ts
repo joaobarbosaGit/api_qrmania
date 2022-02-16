@@ -4,7 +4,6 @@ import { AppError } from "@shared/erros/AppError";
 import { IRaspadinha_TicketRepository } from "@modules/raspadinha/repositories/IRaspadinha_TicketRepository";
 import { Raspadinha_Ticket } from "../entities/Raspadinha_Ticket";
 
-
 class Raspadinha_TicketRepository implements IRaspadinha_TicketRepository {
 
     private repository: Repository<Raspadinha_Ticket>;
@@ -24,7 +23,6 @@ class Raspadinha_TicketRepository implements IRaspadinha_TicketRepository {
         return raspadinha_tickets;
 
     }
-
 
 }
 

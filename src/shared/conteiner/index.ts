@@ -17,6 +17,9 @@ import { QrCodeFidelidadeRepository } from "@modules/qrCodeFidelidade/infra/type
 import { IRaspadinha_TicketRepository } from "@modules/raspadinha/repositories/IRaspadinha_TicketRepository";
 import { Raspadinha_TicketRepository } from "@modules/raspadinha/infra/typeorm/repositories/Raspadinha_TicketRepository";
 
+import { IRaspadinha_PremiosRepository } from "@modules/raspadinha/repositories/IRaspadinha_PremiosRepository";
+import { Raspadinha_PremiosRepository } from "@modules/raspadinha/infra/typeorm/repositories/Raspadinha_PremiosRepository";
+
 container.registerSingleton<IUsersRepository>(
     "UsersRepository",
     UsersRepository
@@ -40,6 +43,11 @@ container.registerSingleton<IQrCodeFidelidadeRepository>(
 container.registerSingleton<IRaspadinha_TicketRepository>(
     "RaspadinhaTicketRepository",
     Raspadinha_TicketRepository
+);
+
+container.registerSingleton<IRaspadinha_PremiosRepository>(
+    "RaspadinhaPremiosRepository",
+    Raspadinha_PremiosRepository
 );
 
 

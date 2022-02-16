@@ -128,6 +128,35 @@
          }
       }
     },
+    "/raspadinha/listraspadinhapremiosbyraspadinha": {
+      "post": {
+        "tags": ["Raspadinha"],
+        "summary": "Listar premios por raspadinhas",
+         "description": "Listar premios por raspadinhas",
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "raspadinha_id": {
+                     "type": "number"
+                   }
+                 },
+                 "example": {
+                   "raspadinha_id": "1"
+                 }
+               }
+             }
+           }
+         },
+         "responses": {
+           "200": {
+             "description": "Sucess"
+           }
+         }
+      }
+    },
     "/cidades/listcidadesbyuf": {
       "post": {
         "tags": ["Cidades"],
