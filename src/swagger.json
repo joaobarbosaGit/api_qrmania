@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Documentação QR Mania",
+    "title": "Documentação QR Mania API",
     "description": "Documentação de integração API QR Mania",
     "version": "1.0.0",
     "contact": {
@@ -10,10 +10,27 @@
   },
   "paths": {
     "/users/findEmail": {
-      "get": {
-        "tags": ["Users"],
-        "summary": "Confirm user email",
-        "description": "Confirm user email",
+      "post": {
+        "tags": ["Usuários"],
+        "summary": "Validar e-mail de usuario",
+        "description": "Validar e-mail de usuario",
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "email": {
+                     "type": "string"
+                   }
+                 },
+                 "example": {
+                   "email": "teste@teste.com.br"
+                 }
+               }
+             }
+           }
+         },
         "responses": {
           "200": {
             "description": "Success"
@@ -23,14 +40,12 @@
           }
         }
       }
-    },"/pontos/countpontuacao": {
+    },
+    "/pontos/countpontuacao": {
       "post": {
-        "tags": ["Score"],
-        "summary": "Check score by user",
-         "description": "Check score by user",
-         "security": [
-          { "bearerAuth": []}
-         ],
+        "tags": ["Pontos"],
+        "summary": "Verificar pontuação total do usuario",
+         "description": "Verificar pontuação total do usuario",
          "requestBody": {
            "content": {
              "application/json": {
@@ -53,6 +68,93 @@
              "description": "Sucess"
            }
          }
+      }
+    },
+    "/qrfidelidade/listqrcodefidelidade": {
+      "post": {
+        "tags": ["Ganhe na Hora"],
+        "summary": "Listar ganhe na hora por usuarios",
+         "description": "Listar ganhe na hora por usuarios",
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "idlojista": {
+                     "type": "number"
+                   }
+                 },
+                 "example": {
+                   "idlojista": "1"
+                 }
+               }
+             }
+           }
+         },
+         "responses": {
+           "200": {
+             "description": "Sucess"
+           }
+         }
+      }
+    },
+    "/raspadinha/listraspadinhabyuser": {
+      "post": {
+        "tags": ["Raspadinha"],
+        "summary": "Listar raspadinhas disponiveis por usuario",
+         "description": "Listar raspadinhas disponiveis por usuario",
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "user_id": {
+                     "type": "number"
+                   }
+                 },
+                 "example": {
+                   "user_id": "1"
+                 }
+               }
+             }
+           }
+         },
+         "responses": {
+           "200": {
+             "description": "Sucess"
+           }
+         }
+      }
+    },
+    "/cidades/listcidadesbyuf": {
+      "post": {
+        "tags": ["Cidades"],
+        "summary": "Lista de cidades por estados",
+        "description": "Lista de cidades por estados",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "uf": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "uf": "AM"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucess"
+          }
+        }
       }
     }
   },
