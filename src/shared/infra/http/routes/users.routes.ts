@@ -9,7 +9,7 @@ const usersRoutes = Router();
 const listAllUsersActiveController = new ListAllUsersController();
 const findEmailController = new FindEmailController();
 
-//usersRoutes.get("/listUsersActive", listAllUsersActiveController.handle);
+usersRoutes.get("/listusersactive", listAllUsersActiveController.handle);
 usersRoutes.get("/findemail", findEmailController.handle);
 
 

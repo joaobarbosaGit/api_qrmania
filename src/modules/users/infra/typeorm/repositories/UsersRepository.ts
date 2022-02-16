@@ -31,10 +31,9 @@ class UsersRepository implements IUsersRepository {
         .addSelect("users.email")
         .from(Users, "users")
         .leftJoinAndSelect("users.cidades","cidades")
-        .where("users.cidades = :cidade")
-        //.leftJoinAndSelect("lojista_dados.users_id","lojista_dados", )
-        //.where("lojista_dados.users_id = :users.id")
-        .where("users.id = :id", { id: 8 })
+        .leftJoinAndSelect("users.lojista_dados","lojista_dados", )
+        .where("users.tipo = :tipo", {tipo: "ESTAB"})
+        .andWhere("users.status = :status", {status: 1})
         .getMany();
 
 

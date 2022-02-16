@@ -11,8 +11,8 @@ class ListAllUsersUseCase{
 
     @inject("UsersRepository")
     private usersRepository: IUsersRepository,
-    @inject("Lojista_DadosRepository")
-    private lojista_dadosRepository: ILojista_DadosRepository
+    //@inject("Lojista_DadosRepository")
+    //private lojista_dadosRepository: ILojista_DadosRepository
     ){};
 
     async execute() : Promise< Users[]> {

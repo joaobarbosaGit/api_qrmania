@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Users } from "@modules/users/infra/typeorm/entities/Users";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
  
 @Entity("lojista_dados")
 class Lojista_Dados {
@@ -7,7 +8,11 @@ class Lojista_Dados {
     id!: number;
 
     @Column()
-    users_id!: string;
+    users_id!: number;
+
+    @OneToOne(() => Users, users => users.lojista_dados) // specify inverse side as a second parameter
+    @JoinColumn({ name: "users_id" })
+    users!: Users;
 
     @Column()
     created_at !: Date;

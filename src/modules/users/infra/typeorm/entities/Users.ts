@@ -1,5 +1,6 @@
 import { Cidades } from "@modules/cities/infra/typeorm/entities/Cidades";
-import { Column, Entity, JoinColumn, ManyToOne,  PrimaryColumn } from "typeorm";
+import { Lojista_Dados } from "@modules/lojista/infra/typeorm/entities/Lojista_Dados";
+import { Column, Entity, JoinColumn, JoinTable, ManyToOne,  OneToOne,  PrimaryColumn } from "typeorm";
 
  
 @Entity("users")
@@ -97,13 +98,8 @@ class Users {
     @JoinColumn({ name: "cidade"})
     cidades!: Cidades;
 
-    // @OneToOne(()=> Lojista_Dados)
-    // @JoinTable({
-    //     name: "lojista_Dados",
-    //     joinColumns: [{ name: "users_id"}],
-    //     inverseJoinColumns: [{ name: "id"}]
-    // })
-    // lojista_dados!: Lojista_Dados;
+    @OneToOne(() => Lojista_Dados, lojista_dados => lojista_dados.users)
+    lojista_dados!: Lojista_Dados;
 
     
 
