@@ -98,8 +98,8 @@ class Users {
     @JoinColumn({ name: "cidade"})
     cidades!: Cidades;
 
-    @OneToOne(() => Lojista_Dados, lojista_dados => lojista_dados.users)
-    lojista_dados!: Lojista_Dados;
+    // @OneToOne(() => Lojista_Dados, lojista_dados => lojista_dados.users)
+    // lojista_dados!: Lojista_Dados;
 
     
 
