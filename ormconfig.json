@@ -5,7 +5,7 @@
 "port": 3306,
 "username":"qrmaniac_cea_dba",
 "password":"Vz1#*oPMMbaY",
-"database":"qrmaniac_teste", 
+"database":"qrmaniacombr_sistema", 
 "migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
 "entities": ["./dist/modules/**/entities/*.js"],
 "cli": {
