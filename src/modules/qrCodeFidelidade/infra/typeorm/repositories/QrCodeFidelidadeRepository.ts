@@ -4,6 +4,8 @@ import { getRepository, Repository } from "typeorm";
 import { AppError } from "@shared/erros/AppError";
 import { IQrCodeFidelidadeRepository } from "@modules/qrCodeFidelidade/repositories/IQrCodeFidelidadeRepository";
 import { QrCodeFidelidade } from "../entities/QrCodeFidelidade";
+import { ICreateQrCodeFidelidadeDTO } from "@modules/qrCodeFidelidade/dtos/ICreateQrCodeFidelidadeDTO";
+import { api } from "@utils/services/api";
 
 
 
@@ -14,6 +16,7 @@ class QrCodeFidelidadeRepository implements IQrCodeFidelidadeRepository {
     constructor(){
         this.repository = getRepository(QrCodeFidelidade);
     }
+    
     async listAllQrCodeFidelidadeByUser(idlojista:number): Promise<QrCodeFidelidade[]> {
         
         const qr_code_fidelidade = await this.repository
@@ -34,6 +37,30 @@ class QrCodeFidelidadeRepository implements IQrCodeFidelidadeRepository {
 
 
         return qr_code_fidelidade;
+    }    
+
+    async createQrCodeFidelidade({ 
+        nome, 
+        tipo, 
+        status,
+        idlojista, 
+        exibir_no_aplicativo,
+        token
+    }: ICreateQrCodeFidelidadeDTO): Promise<void> {
+
+        
+
+        const qr_code_fidelidade = this.repository.create({
+            nome, 
+            tipo, 
+            status,
+            idlojista, 
+            exibir_no_aplicativo,
+            token
+          });
+      
+          await this.repository.save(qr_code_fidelidade);
+
     }
 
 }

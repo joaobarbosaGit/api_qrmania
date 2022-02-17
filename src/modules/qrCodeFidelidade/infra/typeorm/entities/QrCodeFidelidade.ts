@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, JoinTable, ManyToOne,  OneToMany,  OneToOne,  PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToOne,  OneToMany,  OneToOne,  PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { QrCodeFidelidadeProdutos } from "./QrCodeFidelidadesProdutos";
 
  
@@ -17,8 +17,11 @@ class QrCodeFidelidade {
     @Column()
     status!: number;
 
-    @Column()
+    @CreateDateColumn()
     created_at!: Date;
+
+    @Column()
+    token!: string;
 
     @Column()
     idlojista!: number;

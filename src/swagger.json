@@ -99,6 +99,51 @@
          }
       }
     },
+    "/qrfidelidade/createqrcodefidelidade": {
+      "post": {
+        "tags": ["Ganhe na Hora"],
+        "summary": "Inserir ganhe na hora",
+         "description": "Inserir ganhe na hora",
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "nome": {
+                     "type": "string"
+                   },
+                   "tipo": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "number"
+                  },
+                  "idlojista": {
+                    "type": "number"
+                  },
+                  "exibir_no_aplicativo": {
+                    "type": "string"
+                  }
+                 },
+                 "example": {
+                   "nome": "teste",
+                   "tipo": "ALL",
+                   "status": "1",
+                   "idlojista": "1",
+                   "exibir_no_aplicativo": "SIM"
+                 }
+               }
+             }
+           }
+         },
+         "responses": {
+           "201": {
+             "description": "Created"
+           }
+         }
+      }
+    },
     "/raspadinha/listraspadinhabyuser": {
       "post": {
         "tags": ["Raspadinha"],
