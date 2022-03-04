@@ -73,8 +73,8 @@
     "/qrfidelidade/listqrcodefidelidade": {
       "post": {
         "tags": ["Ganhe na Hora"],
-        "summary": "Listar ganhe na hora por usuarios",
-         "description": "Listar ganhe na hora por usuarios",
+        "summary": "Listar todos os ganhe na hora e produtos relacionados por usuarios",
+         "description": "Listar de ganhe na hora por usuarios, juntamente com produtos relacionados, recebe o id do lojista e retorno todos os ganhe na hora, juntamente com todos os produtos equivalentes",
          "requestBody": {
            "content": {
              "application/json": {
@@ -200,35 +200,6 @@
              "description": "Sucess"
            }
          }
-      }
-    },
-    "/cidades/listcidadesbyuf": {
-      "post": {
-        "tags": ["Cidades"],
-        "summary": "Lista de cidades por estados",
-        "description": "Lista de cidades por estados",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "uf": {
-                    "type": "string"
-                  }
-                },
-                "example": {
-                  "uf": "AM"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Sucess"
-          }
-        }
       }
     }
   },
