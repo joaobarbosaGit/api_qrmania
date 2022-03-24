@@ -1,108 +1,117 @@
 import { Cidades } from "@modules/cities/infra/typeorm/entities/Cidades";
 import { Lojista_Dados } from "@modules/lojista/infra/typeorm/entities/Lojista_Dados";
-import { Column, Entity, JoinColumn, JoinTable, ManyToOne,  OneToOne,  PrimaryColumn } from "typeorm";
+import { PontuacoesPremios } from "@modules/pontuacoes/infra/typeorm/entities/PontuacoesPremios";
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  PrimaryColumn,
+} from "typeorm";
 
- 
 @Entity("users")
 class Users {
+  @PrimaryColumn()
+  id!: number;
 
-    @PrimaryColumn()
-    id!: number;
+  //   @OneToMany(
+  //     () => Pontuacoes_Premios,
+  //     (pontuacoesPremios) => pontuacoesPremios.estabelecimento_id
+  //   )
+  @Column()
+  name!: string;
 
-    @Column()
-    name!: string;
+  @Column()
+  email!: string;
 
-    @Column()
-    email !: string;
+  @Column()
+  email_verified_at!: Date;
 
-    @Column()
-    email_verified_at !: Date;
+  @Column()
+  password!: string;
 
-    @Column()
-    password !: string;
+  @Column()
+  cpf_cnpj!: string;
 
-    @Column()
-    cpf_cnpj !: string;
+  @Column()
+  telefone!: string;
 
-    @Column()
-    telefone !: string;
+  @Column()
+  token!: string;
 
-    @Column()
-    token !: string;
+  @Column()
+  tipo!: string;
 
-    @Column()
-    tipo !: string;
+  @Column()
+  status!: number;
 
-    @Column()
-    status !: number;
+  @Column()
+  nome_fantasia!: string;
 
-    @Column()
-    nome_fantasia !: string;
+  @Column()
+  tipo_pessoa!: string;
 
-    @Column()
-    tipo_pessoa !: string;
+  @Column()
+  deleted!: number;
 
-    @Column()
-    deleted !: number;
+  @Column()
+  remember_token!: string;
 
-    @Column()
-    remember_token !: string;
+  @Column()
+  created_at!: Date;
 
-    @Column()
-    created_at !: Date;
+  @Column()
+  updated_at!: Date;
 
-    @Column()
-    updated_at !: Date;
+  @Column()
+  tipo_estabelecimento!: string;
 
-    @Column()
-    tipo_estabelecimento !: string;
+  @Column()
+  uf!: string;
 
-    @Column()
-    uf !: string;
+  @Column()
+  cidade!: number;
 
-    @Column()
-    cidade !: number;
+  @Column()
+  avatar!: string;
 
-    @Column()
-    avatar !: string;
+  @Column()
+  endereco!: string;
 
-    @Column()
-    endereco !: string;
+  @Column()
+  endereco_numero!: string;
 
-    @Column()
-    endereco_numero !: string;
+  @Column()
+  endereco_bairro!: string;
 
-    @Column()
-    endereco_bairro !: string;
+  @Column()
+  endereco_cep!: string;
 
-    @Column()
-    endereco_cep !: string;
+  @Column()
+  data_nascimento!: Date;
 
-    @Column()
-    data_nascimento !: Date;
+  @Column()
+  categoria!: number;
 
-    @Column()
-    categoria !: number;
+  @Column()
+  subcategoria!: number;
 
-    @Column()
-    subcategoria !: number;
+  @Column()
+  id_estabelecimento_colaborador!: number;
 
-    @Column()
-    id_estabelecimento_colaborador !: number;
+  // @OneToOne(()=> Users_Rules)
+  // @JoinColumn({ name: "users_rules_id"})
+  // users_rules!: Users_Rules;
 
-    // @OneToOne(()=> Users_Rules)
-    // @JoinColumn({ name: "users_rules_id"})
-    // users_rules!: Users_Rules;
+  @ManyToOne(() => Cidades)
+  @JoinColumn({ name: "cidade" })
+  cidades!: Cidades;
 
-    @ManyToOne(()=> Cidades)
-    @JoinColumn({ name: "cidade"})
-    cidades!: Cidades;
-
-    // @OneToOne(() => Lojista_Dados, lojista_dados => lojista_dados.users)
-    // lojista_dados!: Lojista_Dados;
-
-    
-
+  // @OneToOne(() => Lojista_Dados, lojista_dados => lojista_dados.users)
+  // lojista_dados!: Lojista_Dados;
 }
 
-export { Users }
+export { Users };

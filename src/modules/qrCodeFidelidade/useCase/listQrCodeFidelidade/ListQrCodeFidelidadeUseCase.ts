@@ -5,19 +5,22 @@ import { QrCodeFidelidade } from "@modules/qrCodeFidelidade/infra/typeorm/entiti
 import { IListQrCodeFidelidadeByUserDTO } from "@modules/qrCodeFidelidade/dtos/IListQrCodeFidelidadeByUserDTO";
 
 @injectable()
-class ListQrCodeFidelidadeUseCase{
-
-    constructor(
+class ListQrCodeFidelidadeUseCase {
+  constructor(
     @inject("QrCodeFidelidadeRepository")
     private qrCodeFidelidadeRepository: IQrCodeFidelidadeRepository
-    ){};
+  ) {}
 
-    async execute( {idlojista} : IListQrCodeFidelidadeByUserDTO) : Promise< QrCodeFidelidade[]> {
+  async execute({
+    idlojista,
+  }: IListQrCodeFidelidadeByUserDTO): Promise<QrCodeFidelidade[]> {
+    const qrcode_fidelidade =
+      await this.qrCodeFidelidadeRepository.listAllQrCodeFidelidadeByUser(
+        idlojista
+      );
 
-       const qrcode_fidelidade = await this.qrCodeFidelidadeRepository.listAllQrCodeFidelidadeByUser(idlojista);
-
-       return qrcode_fidelidade;
-    }
+    return qrcode_fidelidade;
+  }
 }
 
 export { ListQrCodeFidelidadeUseCase };

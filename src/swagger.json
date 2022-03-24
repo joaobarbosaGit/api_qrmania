@@ -9,7 +9,7 @@
     }
   },
   "paths": {
-    "/users/findEmail": {
+    "/users/findemail": {
       "post": {
         "tags": ["Usuários"],
         "summary": "Validar e-mail de usuario",
@@ -46,6 +46,35 @@
         "tags": ["Pontos"],
         "summary": "Verificar pontuação total do usuario",
          "description": "Verificar pontuação total do usuario",
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "user_id": {
+                     "type": "number"
+                   }
+                 },
+                 "example": {
+                   "user_id": "1"
+                 }
+               }
+             }
+           }
+         },
+         "responses": {
+           "200": {
+             "description": "Sucess"
+           }
+         }
+      }
+    },
+    "/pontos/listallpremios": {
+      "post": {
+        "tags": ["Pontos"],
+        "summary": "Listar prêmios e pontos para resgate por estabelecimento",
+         "description": "Listar prêmios e pontos para resgate por estabelecimento",
          "requestBody": {
            "content": {
              "application/json": {

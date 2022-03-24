@@ -20,35 +20,40 @@ import { Raspadinha_TicketRepository } from "@modules/raspadinha/infra/typeorm/r
 import { IRaspadinha_PremiosRepository } from "@modules/raspadinha/repositories/IRaspadinha_PremiosRepository";
 import { Raspadinha_PremiosRepository } from "@modules/raspadinha/infra/typeorm/repositories/Raspadinha_PremiosRepository";
 
+import { IPontuacoesPremiosRepository } from "@modules/pontuacoes/repositories/IPontuacoesPremiosRepository";
+import { PontuacoesPremiosRepository } from "@modules/pontuacoes/infra/typeorm/repositories/PontuacoesPremiosRepository";
+
 container.registerSingleton<IUsersRepository>(
-    "UsersRepository",
-    UsersRepository
+  "UsersRepository",
+  UsersRepository
 );
 
 container.registerSingleton<IPontuacoesRepository>(
-    "PontuacoesRepository",
-    PontuacoesRepository
+  "PontuacoesRepository",
+  PontuacoesRepository
 );
 
 container.registerSingleton<ICidadesRepository>(
-    "CidadesRepository",
-    CidadesRepository
+  "CidadesRepository",
+  CidadesRepository
 );
 
 container.registerSingleton<IQrCodeFidelidadeRepository>(
-    "QrCodeFidelidadeRepository",
-    QrCodeFidelidadeRepository
+  "QrCodeFidelidadeRepository",
+  QrCodeFidelidadeRepository
 );
 
 container.registerSingleton<IRaspadinha_TicketRepository>(
-    "RaspadinhaTicketRepository",
-    Raspadinha_TicketRepository
+  "RaspadinhaTicketRepository",
+  Raspadinha_TicketRepository
 );
 
 container.registerSingleton<IRaspadinha_PremiosRepository>(
-    "RaspadinhaPremiosRepository",
-    Raspadinha_PremiosRepository
+  "RaspadinhaPremiosRepository",
+  Raspadinha_PremiosRepository
 );
 
-
-
+container.registerSingleton<IPontuacoesPremiosRepository>(
+  "PontuacoesPremiosRepository",
+  PontuacoesPremiosRepository
+);
