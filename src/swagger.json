@@ -99,6 +99,68 @@
          }
       }
     },
+    "/pontos/listallpointshistory": {
+      "post": {
+        "tags": ["Pontos"],
+        "summary": "Listar historico de pontos por pontuação",
+         "description": "Listar historico de pontos por pontuação",
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "pontuacao_id": {
+                     "type": "number"
+                   }
+                 },
+                 "example": {
+                   "pontuacao_id": "1"
+                 }
+               }
+             }
+           }
+         },
+         "responses": {
+           "200": {
+             "description": "Sucess"
+           }
+         }
+      }
+    },
+    "/pontos/listallredemptionscores": {
+      "post": {
+        "tags": ["Pontos"],
+        "summary": "Listar resgates de pontos por usuario/cliente e por estabelecimento",
+         "description": "Listar resgates de pontos por usuario/cliente e por estabelecimento",
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "user_id": {
+                     "type": "number"
+                   },
+                   "idlojista": {
+                     "type": "number"
+                   }
+                 },
+                  "example": {
+                    "user_id": "1",
+                    "idlojista": "1"
+                 }
+               }
+             }
+           }
+         },
+         "responses": {
+           "200": {
+             "description": "Sucess"
+           }
+         }
+      }
+    },
     "/qrfidelidade/listqrcodefidelidade": {
       "post": {
         "tags": ["Ganhe na Hora"],

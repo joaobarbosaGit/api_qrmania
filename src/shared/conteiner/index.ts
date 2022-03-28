@@ -23,6 +23,12 @@ import { Raspadinha_PremiosRepository } from "@modules/raspadinha/infra/typeorm/
 import { IPontuacoesPremiosRepository } from "@modules/pontuacoes/repositories/IPontuacoesPremiosRepository";
 import { PontuacoesPremiosRepository } from "@modules/pontuacoes/infra/typeorm/repositories/PontuacoesPremiosRepository";
 
+import { IPontuacoesHistoricoRepository } from "@modules/pontuacoes/repositories/IPontuacoesHistoricoRepository";
+import { PontuacoesHistoricoRepository } from "@modules/pontuacoes/infra/typeorm/repositories/PontuacoesHistoricoRepository";
+
+import { IPontuacoesResgateRepository } from "@modules/pontuacoes/repositories/IPontuacoesResgateRepository";
+import { PontuacoesResgateRepository } from "@modules/pontuacoes/infra/typeorm/repositories/PontuacoesResgateRepository";
+
 container.registerSingleton<IUsersRepository>(
   "UsersRepository",
   UsersRepository
@@ -56,4 +62,14 @@ container.registerSingleton<IRaspadinha_PremiosRepository>(
 container.registerSingleton<IPontuacoesPremiosRepository>(
   "PontuacoesPremiosRepository",
   PontuacoesPremiosRepository
+);
+
+container.registerSingleton<IPontuacoesHistoricoRepository>(
+  "PontuacoesHistoricoRepository",
+  PontuacoesHistoricoRepository
+);
+
+container.registerSingleton<IPontuacoesResgateRepository>(
+  "PontuacoesRegatesoRepository",
+  PontuacoesResgateRepository
 );
