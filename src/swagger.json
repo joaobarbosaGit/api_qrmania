@@ -235,6 +235,39 @@
          }
       }
     },
+    "/qrfidelidade/listqrcodefidelidadehistorico": {
+      "post": {
+        "tags": ["Ganhe na Hora"],
+        "summary": "Listar historico dos ganhe na hora relacionados por usuarios e qr_fidelidade",
+         "description": "Listar historico dos ganhe na hora relacionados por usuarios e qr_fidelidade",
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "idusuario": {
+                     "type": "number"
+                   },
+                   "idqrcode_fidelidade":{
+                    "type": "number"
+                   }
+                 },
+                 "example": {
+                   "idusuario": "1",
+                   "idqrcode_fidelidade":"1"
+                 }
+               }
+             }
+           }
+         },
+         "responses": {
+           "200": {
+             "description": "Sucess"
+           }
+         }
+      }
+    },
     "/raspadinha/listraspadinhabyuser": {
       "post": {
         "tags": ["Raspadinha"],

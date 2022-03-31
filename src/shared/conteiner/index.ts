@@ -14,6 +14,9 @@ import { CidadesRepository } from "@modules/cities/infra/typeorm/repositories/Ci
 import { IQrCodeFidelidadeRepository } from "@modules/qrCodeFidelidade/repositories/IQrCodeFidelidadeRepository";
 import { QrCodeFidelidadeRepository } from "@modules/qrCodeFidelidade/infra/typeorm/repositories/QrCodeFidelidadeRepository";
 
+import { IQrCodeFidelidadeHistoricoRepository } from "@modules/qrCodeFidelidade/repositories/IQrCodeFidelidadeHistoricoRepository";
+import { QrCodeFidelidadeHistoricoRepository } from "@modules/qrCodeFidelidade/infra/typeorm/repositories/QrCodeFidelidadeHistoricoRepository";
+
 import { IRaspadinha_TicketRepository } from "@modules/raspadinha/repositories/IRaspadinha_TicketRepository";
 import { Raspadinha_TicketRepository } from "@modules/raspadinha/infra/typeorm/repositories/Raspadinha_TicketRepository";
 
@@ -47,6 +50,11 @@ container.registerSingleton<ICidadesRepository>(
 container.registerSingleton<IQrCodeFidelidadeRepository>(
   "QrCodeFidelidadeRepository",
   QrCodeFidelidadeRepository
+);
+
+container.registerSingleton<IQrCodeFidelidadeHistoricoRepository>(
+  "QrCodeFidelidadeHistoricoRepository",
+  QrCodeFidelidadeHistoricoRepository
 );
 
 container.registerSingleton<IRaspadinha_TicketRepository>(
