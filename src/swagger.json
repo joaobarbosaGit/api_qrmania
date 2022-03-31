@@ -70,6 +70,39 @@
          }
       }
     },
+    "/pontos/countpontuacaobyuserandestabelecimento": {
+      "post": {
+        "tags": ["Pontos"],
+        "summary": "Verificar pontuação total do usuario por estabelecimento",
+         "description": "Verificar pontuação total do usuario por estabeleciment",
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "user_id": {
+                     "type": "number"
+                   },
+                   "estabelecimento_id":{
+                      "type": "number"
+                   }
+                 },
+                 "example": {
+                   "user_id": "1",
+                   "estabelecimento_id":"1"
+                 }
+               }
+             }
+           }
+         },
+         "responses": {
+           "200": {
+             "description": "Sucess"
+           }
+         }
+      }
+    },
     "/pontos/listallpremios": {
       "post": {
         "tags": ["Pontos"],
@@ -238,8 +271,8 @@
     "/qrfidelidade/listqrcodefidelidadehistorico": {
       "post": {
         "tags": ["Ganhe na Hora"],
-        "summary": "Listar historico dos ganhe na hora relacionados por usuarios e qr_fidelidade",
-         "description": "Listar historico dos ganhe na hora relacionados por usuarios e qr_fidelidade",
+        "summary": "Listar historico dos ganhe na hora relacionados por usuarios",
+         "description": "Listar historico dos ganhe na hora relacionados por usuarios",
          "requestBody": {
            "content": {
              "application/json": {

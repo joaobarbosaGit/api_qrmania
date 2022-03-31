@@ -4,10 +4,13 @@ import { CountPontuacoesController } from "@modules/pontuacoes/useCase/countPont
 import { ListAllRewardsAndRedemptionPointsController } from "@modules/pontuacoes/useCase/listAllRewardsAndRedemptionPoints/ListAllRewardsAndRedemptionPointsController";
 import { ListAllPointsHistoryController } from "@modules/pontuacoes/useCase/listAllPointsHistory/ListAllPointsHistoryController";
 import { ListAllRedemptionScoresController } from "@modules/pontuacoes/useCase/listAllRedemptionScores/ListAllRedemptionScoresController";
+import { CountPontuacoesByUserAndByEstabelecimentoController } from "@modules/pontuacoes/useCase/countPontuacoesByUserAndByEstabelecimento/CountPontuacoesByUserAndByEstabelecimentoController";
 
 const pontosRoutes = Router();
 
 const countPontuacoesController = new CountPontuacoesController();
+const countPontuacoesByUserAndByEstabelecimentoController =
+  new CountPontuacoesByUserAndByEstabelecimentoController();
 const listAllRewardsAndRedemptionPointsController =
   new ListAllRewardsAndRedemptionPointsController();
 
@@ -16,6 +19,11 @@ const listAllRedemptionScoresController =
   new ListAllRedemptionScoresController();
 
 pontosRoutes.post("/countpontuacao", countPontuacoesController.handle);
+
+pontosRoutes.post(
+  "/countpontuacaobyuserandestabelecimento",
+  countPontuacoesByUserAndByEstabelecimentoController.handle
+);
 
 pontosRoutes.post(
   "/listallpremios",
