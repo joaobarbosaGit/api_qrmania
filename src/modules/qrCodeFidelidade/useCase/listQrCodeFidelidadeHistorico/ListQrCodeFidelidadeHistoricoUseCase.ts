@@ -13,12 +13,10 @@ class ListQrCodeFidelidadeHistoricoUseCase {
 
   async execute({
     idusuario,
-    idqrcode_fidelidade,
   }: IListQrCodeFidelidadeHistoricoDTO): Promise<QrCodeFidelidadeHistorico[]> {
     const qrcode_fidelidade_historico =
       await this.qrCodeFidelidadeHistoricoRepository.listAllQrCodeFidelidadeHistoricoByUserAndByQrCodeFidelidade(
-        idusuario,
-        idqrcode_fidelidade
+        idusuario
       );
 
     return qrcode_fidelidade_historico;

@@ -2,8 +2,7 @@ import { QrCodeFidelidadeHistorico } from "../infra/typeorm/entities/QrCodeFidel
 
 interface IQrCodeFidelidadeHistoricoRepository {
   listAllQrCodeFidelidadeHistoricoByUserAndByQrCodeFidelidade(
-    idusuario: number,
-    idqrcode_fidelidade: number
+    idusuario: number
   ): Promise<QrCodeFidelidadeHistorico[]>;
 }
 

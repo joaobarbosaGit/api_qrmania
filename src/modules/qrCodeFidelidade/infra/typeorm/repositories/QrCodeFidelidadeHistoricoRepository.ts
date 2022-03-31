@@ -12,8 +12,7 @@ class QrCodeFidelidadeHistoricoRepository
     this.repository = getRepository(QrCodeFidelidadeHistorico);
   }
   async listAllQrCodeFidelidadeHistoricoByUserAndByQrCodeFidelidade(
-    idusuario: number,
-    idqrcode_fidelidade: number
+    idusuario: number
   ): Promise<QrCodeFidelidadeHistorico[]> {
     const qr_code_fidelidade_historico = await this.repository
       .createQueryBuilder("qr_fidelidade_historico")
@@ -31,12 +30,6 @@ class QrCodeFidelidadeHistoricoRepository
       .where("qrcode_fidelidade_historico.idusuario = :idusuario", {
         idusuario: idusuario,
       })
-      .andWhere(
-        "qrcode_fidelidade_historico.idqrcode_fidelidade = :idqrcode_fidelidade",
-        {
-          idqrcode_fidelidade: idqrcode_fidelidade,
-        }
-      )
       .getMany();
 
     return qr_code_fidelidade_historico;

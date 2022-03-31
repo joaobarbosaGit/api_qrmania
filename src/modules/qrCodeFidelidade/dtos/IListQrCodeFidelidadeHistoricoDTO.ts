@@ -1,8 +1,5 @@
 interface IListQrCodeFidelidadeHistoricoDTO {
-    
-    idusuario: number;
-    idqrcode_fidelidade: number;
-
+  idusuario: number;
 }
 
 export { IListQrCodeFidelidadeHistoricoDTO };

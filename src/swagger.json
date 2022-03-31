@@ -248,14 +248,10 @@
                  "properties": {
                    "idusuario": {
                      "type": "number"
-                   },
-                   "idqrcode_fidelidade":{
-                    "type": "number"
                    }
                  },
                  "example": {
-                   "idusuario": "1",
-                   "idqrcode_fidelidade":"1"
+                   "idusuario": "1"
                  }
                }
              }

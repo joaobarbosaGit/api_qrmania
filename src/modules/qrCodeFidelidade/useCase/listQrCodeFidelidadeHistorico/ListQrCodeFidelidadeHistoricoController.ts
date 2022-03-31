@@ -5,7 +5,7 @@ import { ListQrCodeFidelidadeHistoricoUseCase } from "./ListQrCodeFidelidadeHist
 
 class ListQrCodeFidelidadeHistoricoController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { idusuario, idqrcode_fidelidade } = request.body;
+    const { idusuario } = request.body;
 
     const listQrCodeFidelidadeHistoricoUseCase = container.resolve(
       ListQrCodeFidelidadeHistoricoUseCase
@@ -14,7 +14,6 @@ class ListQrCodeFidelidadeHistoricoController {
     const qrcode_fidelidade_historico =
       await listQrCodeFidelidadeHistoricoUseCase.execute({
         idusuario,
-        idqrcode_fidelidade,
       });
 
     return response.status(200).json(qrcode_fidelidade_historico).send();
