@@ -194,6 +194,35 @@
          }
       }
     },
+    "/pontos/listEstabelecimentoWithPointsByUserController": {
+      "post": {
+        "tags": ["Pontos"],
+        "summary": "Listar estabelimentos com pontos por usuario",
+         "description": "Listar estabelimentos com pontos por usuario",
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "user_id": {
+                     "type": "number"
+                   }
+                 },
+                  "example": {
+                    "user_id": "1"
+                 }
+               }
+             }
+           }
+         },
+         "responses": {
+           "200": {
+             "description": "Sucess"
+           }
+         }
+      }
+    },
     "/qrfidelidade/listqrcodefidelidade": {
       "post": {
         "tags": ["Ganhe na Hora"],
