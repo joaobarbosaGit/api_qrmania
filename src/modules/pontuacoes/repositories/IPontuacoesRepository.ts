@@ -9,6 +9,10 @@ interface IPontuacoesRepository {
   listAllEstabelecimentosWithPointsByUser(
     user_id: number
   ): Promise<Pontuacoes[]>;
+  listAllPontosHistoricoByUserByEstabelecimento(
+    user_id: number,
+    estabelecimento_id: number
+  ): Promise<Pontuacoes[]>;
 }
 
 export { IPontuacoesRepository };

@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from "typeorm";
+import { Pontuacoes } from "./Pontuacoes";
 
 @Entity("pontuacoes_historico")
 class PontuacoesHistorico {
@@ -8,7 +15,8 @@ class PontuacoesHistorico {
   @Column()
   pontos!: number;
 
-  @Column()
+  @ManyToOne(() => Pontuacoes, (pontuacoes) => pontuacoes.pontuacoes_historico)
+  @JoinColumn({ name: "pontuacao_id" })
   pontuacao_id!: number;
 
   @Column()

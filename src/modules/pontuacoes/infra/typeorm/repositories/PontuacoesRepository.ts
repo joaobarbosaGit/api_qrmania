@@ -64,6 +64,35 @@ class PontuacoesRepository implements IPontuacoesRepository {
 
     return listEstabelecimentos;
   }
+  async listAllPontosHistoricoByUserByEstabelecimento(
+    user_id: number,
+    estabelecimento_id: number
+  ): Promise<Pontuacoes[]> {
+    const pontos_historico = await this.repository
+      .createQueryBuilder("pth")
+      .select("pontuacoes.id")
+      .addSelect("pontuacoes.pontos")
+      .addSelect("pontuacoes.status")
+      .addSelect("pontuacoes.deleted")
+      .addSelect("pontuacoes.user_id")
+      .addSelect("pontuacoes.created_at")
+      .addSelect("pontuacoes.updated_at")
+      .addSelect("pontuacoes.estabelecimento_id")
+      .from(Pontuacoes, "pontuacoes")
+      .where("pontuacoes.user_id  = :user_id", {
+        user_id: user_id,
+      })
+      .andWhere("pontuacoes.estabelecimento_id  = :estabelecimento_id", {
+        estabelecimento_id: estabelecimento_id,
+      })
+      .leftJoinAndSelect(
+        "pontuacoes.pontuacoes_historico",
+        "pontuacoes_historico"
+      )
+      .getMany();
+
+    return pontos_historico;
+  }
 }
 
 export { PontuacoesRepository };

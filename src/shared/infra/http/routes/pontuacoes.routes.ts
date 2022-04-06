@@ -6,6 +6,7 @@ import { ListAllPointsHistoryController } from "@modules/pontuacoes/useCase/list
 import { ListAllRedemptionScoresController } from "@modules/pontuacoes/useCase/listAllRedemptionScores/ListAllRedemptionScoresController";
 import { CountPontuacoesByUserAndByEstabelecimentoController } from "@modules/pontuacoes/useCase/countPontuacoesByUserAndByEstabelecimento/CountPontuacoesByUserAndByEstabelecimentoController";
 import { ListEstabelecimentoWithPointsByUserController } from "@modules/pontuacoes/useCase/listEstabelecimentoWithPointsByUser/ListEstabelecimentoWithPointsByUserController";
+import { ListAllPontosHistoricoByUserByEstabelecimentoController } from "@modules/pontuacoes/useCase/listAllPontosHistoricoByUserByEstabelecimento/ListAllPontosHistoricoByUserByEstabelecimentoController";
 
 const pontosRoutes = Router();
 
@@ -20,6 +21,8 @@ const listEstabelecimentoWithPointsByUserController =
   new ListEstabelecimentoWithPointsByUserController();
 const listAllRedemptionScoresController =
   new ListAllRedemptionScoresController();
+const listAllPontosHistoricoByUserByEstabelecimentoController =
+  new ListAllPontosHistoricoByUserByEstabelecimentoController();
 
 pontosRoutes.post("/countpontuacao", countPontuacoesController.handle);
 
@@ -38,13 +41,18 @@ pontosRoutes.post(
   listAllRedemptionScoresController.handle
 );
 pontosRoutes.post(
-  "/listEstabelecimentoWithPointsByUserController",
+  "/listestabelecimentowithpointsbyuser",
   listEstabelecimentoWithPointsByUserController.handle
 );
 
 pontosRoutes.post(
   "/listallpointshistory",
   listAllPointsHistoryController.handle
+);
+
+pontosRoutes.post(
+  "/listallpontoshistoricobyuserbyestabelecimento",
+  listAllPontosHistoricoByUserByEstabelecimentoController.handle
 );
 
 export { pontosRoutes };

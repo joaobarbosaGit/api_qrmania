@@ -1,26 +1,11 @@
 import { Cidades } from "@modules/cities/infra/typeorm/entities/Cidades";
-import { Lojista_Dados } from "@modules/lojista/infra/typeorm/entities/Lojista_Dados";
-import { PontuacoesPremios } from "@modules/pontuacoes/infra/typeorm/entities/PontuacoesPremios";
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  JoinTable,
-  ManyToOne,
-  OneToMany,
-  OneToOne,
-  PrimaryColumn,
-} from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 
 @Entity("users")
 class Users {
   @PrimaryColumn()
   id!: number;
 
-  //   @OneToMany(
-  //     () => Pontuacoes_Premios,
-  //     (pontuacoesPremios) => pontuacoesPremios.estabelecimento_id
-  //   )
   @Column()
   name!: string;
 
@@ -102,16 +87,9 @@ class Users {
   @Column()
   id_estabelecimento_colaborador!: number;
 
-  // @OneToOne(()=> Users_Rules)
-  // @JoinColumn({ name: "users_rules_id"})
-  // users_rules!: Users_Rules;
-
   @ManyToOne(() => Cidades)
   @JoinColumn({ name: "cidade" })
   cidades!: Cidades;
-
-  // @OneToOne(() => Lojista_Dados, lojista_dados => lojista_dados.users)
-  // lojista_dados!: Lojista_Dados;
 }
 
 export { Users };
