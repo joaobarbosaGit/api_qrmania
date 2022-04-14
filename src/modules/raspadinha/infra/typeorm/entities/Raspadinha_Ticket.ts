@@ -1,43 +1,41 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import { Raspadinha } from "./Raspadinha";
 
- 
 @Entity("raspadinha_tickets")
 class Raspadinha_Ticket {
+  @PrimaryColumn()
+  idraspadinha_tickets!: number;
 
-    @PrimaryColumn()
-    idraspadinha_tickets!: number;
+  @Column()
+  status!: number;
 
-    @Column()
-    status!: number;
+  @Column()
+  sorteada!: number;
 
-    @Column()
-    sorteada!: number;
+  @Column()
+  token!: string;
 
-    @Column()
-    token!: string;
+  @ManyToOne(() => Raspadinha, (raspadinha) => raspadinha.raspadinha_tickets)
+  @JoinColumn({ name: "raspadinha_id" })
+  raspadinha_id!: number;
 
-    @Column()
-    raspadinha_id!: number;
+  @Column()
+  user_id!: number;
 
-    @Column()
-    user_id!: number;
+  @Column()
+  raspadinha_premios_id!: number;
 
-    @Column()
-    raspadinha_premios_id!: number ;
+  @Column()
+  created_at!: Date;
 
-    @Column()
-    created_at!: Date ;
+  @Column()
+  updated_at!: Date;
 
-    @Column()
-    updated_at!: Date ;
+  @Column()
+  raspado!: number;
 
-    @Column()
-    raspado!: number ;
-    
-    @Column()
-    raspado_at!: Date ;
-   
-
+  @Column()
+  raspado_at!: Date;
 }
 
-export { Raspadinha_Ticket }
+export { Raspadinha_Ticket };
