@@ -32,9 +32,6 @@ import { PontuacoesHistoricoRepository } from "@modules/pontuacoes/infra/typeorm
 import { IPontuacoesResgateRepository } from "@modules/pontuacoes/repositories/IPontuacoesResgateRepository";
 import { PontuacoesResgateRepository } from "@modules/pontuacoes/infra/typeorm/repositories/PontuacoesResgateRepository";
 
-import { ILojista_DadosRepository } from "@modules/lojista/repositories/ILojista_DadosRepository";
-import { Lojista_DadosRepository } from "@modules/lojista/infra/typeorm/repositories/LojistaRepository";
-
 container.registerSingleton<IUsersRepository>(
   "UsersRepository",
   UsersRepository
@@ -83,9 +80,4 @@ container.registerSingleton<IPontuacoesHistoricoRepository>(
 container.registerSingleton<IPontuacoesResgateRepository>(
   "PontuacoesRegatesoRepository",
   PontuacoesResgateRepository
-);
-
-container.registerSingleton<ILojista_DadosRepository>(
-  "Lojista_DadosRepository",
-  Lojista_DadosRepository
 );
