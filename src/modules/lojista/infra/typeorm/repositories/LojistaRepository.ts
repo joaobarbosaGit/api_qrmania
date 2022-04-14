@@ -1,7 +1,7 @@
 import { getRepository, Repository } from "typeorm";
 
 import { ILojista_DadosRepository } from "@modules/lojista/repositories/ILojista_DadosRepository";
-import { Lojista_Dados } from "@modules/lojista/infra/typeorm/entities/Lojista_Dados";
+import { Lojista_Dados } from "../entities/Lojista_Dados";
 
 class Lojista_DadosRepository implements ILojista_DadosRepository {
   private repository: Repository<Lojista_Dados>;
