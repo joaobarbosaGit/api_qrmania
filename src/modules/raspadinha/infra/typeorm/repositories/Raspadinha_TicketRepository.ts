@@ -33,6 +33,20 @@ class Raspadinha_TicketRepository implements IRaspadinha_TicketRepository {
 
     return raspadinha_tickets;
   }
+
+  async isRaspado(
+    idraspadinha_tickets: number
+  ): Promise<Raspadinha_Ticket | AppError> {
+    const raspadinha_ticket = await this.repository.findOne(
+      idraspadinha_tickets
+    );
+
+    if (raspadinha_ticket != null) {
+      return raspadinha_ticket;
+    } else {
+      throw new AppError("Raspadinha not exists!");
+    }
+  }
 }
 
 export { Raspadinha_TicketRepository };
