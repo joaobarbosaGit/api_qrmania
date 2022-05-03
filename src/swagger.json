@@ -417,6 +417,35 @@
            }
          }
       }
+    },
+    "/raspadinha/israspado": {
+      "post": {
+        "tags": ["Raspadinha"],
+        "summary": "Verificar se raspadinha ja foi raspada",
+         "description": "Verificar se raspadinha ja foi raspada",
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "idraspadinha_tickets": {
+                     "type": "number"
+                   }
+                 },
+                 "example": {
+                   "idraspadinha_tickets": "1"
+                 }
+               }
+             }
+           }
+         },
+         "responses": {
+           "200": {
+             "description": "Sucess"
+           }
+         }
+      }
     }
   },
   "components": {
