@@ -35,7 +35,7 @@ class Raspadinha_Ticket {
   raspado!: number;
 
   @Column()
-  raspado_at!: Date;
+  raspado_at!: string;
 }
 
 export { Raspadinha_Ticket };

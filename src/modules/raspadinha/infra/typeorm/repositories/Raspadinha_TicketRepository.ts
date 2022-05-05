@@ -18,6 +18,7 @@ class Raspadinha_TicketRepository implements IRaspadinha_TicketRepository {
       .createQueryBuilder("raspadinha_ticket")
       .select("raspadinha_ticket.idraspadinha_tickets")
       .addSelect("raspadinha_ticket.status")
+      .addSelect("raspadinha_ticket.sorteada")
       .addSelect("raspadinha_ticket.token")
       .addSelect("raspadinha_ticket.raspadinha_id")
       .addSelect("raspadinha_ticket.user_id")
@@ -46,6 +47,35 @@ class Raspadinha_TicketRepository implements IRaspadinha_TicketRepository {
     } else {
       throw new AppError("Raspadinha not exists!");
     }
+  }
+
+  async updateRaspado(idraspadinha_tickets: number): Promise<string> {
+    const raspadinha_tickets = await this.repository.findOne(
+      idraspadinha_tickets
+    );
+
+    if (!raspadinha_tickets) {
+      throw new AppError("Raspadinha not exists!");
+    }
+
+    var today = new Date();
+    var date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
+    var time =
+      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+    raspadinha_tickets.raspado_at = date + " " + time;
+    raspadinha_tickets.raspado = 1;
+
+    await this.repository.save(raspadinha_tickets);
+
+    return Object.assign({
+      mensagem: "raspadinha atualizada com sucesso",
+    });
   }
 }
 

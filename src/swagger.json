@@ -418,11 +418,11 @@
          }
       }
     },
-    "/raspadinha/israspado": {
-      "post": {
+    "/raspadinha/updateraspado": {
+      "put": {
         "tags": ["Raspadinha"],
-        "summary": "Verificar se raspadinha ja foi raspada",
-         "description": "Verificar se raspadinha ja foi raspada",
+        "summary": "Atualizar status da raspadinha",
+         "description": "Atualizar status da raspadinha",
          "requestBody": {
            "content": {
              "application/json": {
