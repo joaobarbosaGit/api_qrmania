@@ -12,9 +12,36 @@ class RaspadinhaRepository implements IRaspadinhaRepository {
 
   async listAllRaspadinhaByUser(user_id: number): Promise<Raspadinha[]> {
     const raspadinha = await this.repository
-      .createQueryBuilder("raspadinha_ticket")
-      .where("raspadinha_ticket.user_id = :user_id", { user_id })
-      .andWhere("raspadinha_ticket.raspado = :raspado", { raspado: 0 })
+      .createQueryBuilder("raspadinha")
+      .select("raspadinha.idraspadinha")
+      .addSelect("raspadinha.nome")
+      .addSelect("raspadinha.total_quantity")
+      .addSelect("raspadinha.status")
+      .addSelect("raspadinha.estabelecimento_id")
+      .addSelect("raspadinha.created_at")
+      .addSelect("raspadinha.updated_at")
+      .where("raspadinha.estabelecimento_id = :user_id", { user_id })
+      .leftJoinAndSelect("raspadinha.raspadinha_tickets", "raspadinha_ticket")
+      .leftJoinAndSelect("raspadinha.raspadinha_premios", "raspadinha_premios")
+      .getMany();
+
+    return raspadinha;
+  }
+
+  async listAllRaspadinhasByUserByPremios(
+    user_id: number
+  ): Promise<Raspadinha[]> {
+    const raspadinha = await this.repository
+      .createQueryBuilder("raspadinha")
+      .select("raspadinha.idraspadinha")
+      .addSelect("raspadinha.nome")
+      .addSelect("raspadinha.total_quantity")
+      .addSelect("raspadinha.status")
+      .addSelect("raspadinha.estabelecimento_id")
+      .addSelect("raspadinha.created_at")
+      .addSelect("raspadinha.updated_at")
+      .where("raspadinha.estabelecimento_id = :user_id", { user_id })
+      .leftJoinAndSelect("raspadinha.raspadinha_premios", "raspadinha_premios")
       .getMany();
 
     return raspadinha;

@@ -1,4 +1,5 @@
 import { Column, Entity, JoinColumn, OneToMany, PrimaryColumn } from "typeorm";
+import { Raspadinha_Premios } from "./Raspadinha_Premios";
 import { Raspadinha_Ticket } from "./Raspadinha_Ticket";
 
 @Entity("raspadinha")
@@ -30,6 +31,13 @@ class Raspadinha {
   )
   @JoinColumn({ name: "idraspadinha" })
   raspadinha_tickets!: Raspadinha_Ticket[];
+
+  @OneToMany(
+    () => Raspadinha_Premios,
+    (raspadinha_Premios) => raspadinha_Premios.raspadinha_id
+  )
+  @JoinColumn({ name: "idraspadinha" })
+  raspadinha_premios!: Raspadinha_Premios[];
 }
 
 export { Raspadinha };

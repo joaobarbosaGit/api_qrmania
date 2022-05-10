@@ -446,6 +446,21 @@
            }
          }
       }
+    },
+    "raspadinha/listallraspadinhabyuserbypremios/:user_id": {
+      "get": {
+        "tags": ["Raspadinha"],
+        "summary": "Lista de Raspadinhas por usuario com informações sobre os premios referentes",
+         "description": "Lista de Raspadinhas por usuario com informações sobre os premios referentes",
+         "requestBody": {
+           
+         },
+         "responses": {
+           "200": {
+             "description": "Sucess"
+           }
+         }
+      }
     }
   },
   "components": {

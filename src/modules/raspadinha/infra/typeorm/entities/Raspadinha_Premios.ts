@@ -1,4 +1,12 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryColumn,
+} from "typeorm";
+import { Raspadinha } from "./Raspadinha";
 
 @Entity("raspadinha_premios")
 class Raspadinha_Premios {
@@ -11,7 +19,8 @@ class Raspadinha_Premios {
   @Column()
   descricao!: string;
 
-  @Column()
+  @ManyToOne(() => Raspadinha, (raspadinha) => raspadinha.raspadinha_premios)
+  @JoinColumn({ name: "raspadinha_id" })
   raspadinha_id!: number;
 
   @Column()
