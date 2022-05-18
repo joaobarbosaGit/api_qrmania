@@ -26,6 +26,9 @@ class Raspadinha_Premios {
   @Column()
   token!: string;
 
+  @Column()
+  foto!: string;
+
   @CreateDateColumn()
   created_at!: Date;
 
