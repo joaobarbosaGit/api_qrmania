@@ -28,7 +28,6 @@ class Raspadinha_TicketRepository implements IRaspadinha_TicketRepository {
       .addSelect("raspadinha_ticket.raspado")
       .addSelect("raspadinha_ticket.raspado_at")
       .where("raspadinha_ticket.user_id = :user_id", { user_id })
-      .andWhere("raspadinha_ticket.raspado = :raspado", { raspado: 0 })
       .leftJoinAndSelect("raspadinha_ticket.raspadinha_id", "raspadinha")
       .getMany();
 
