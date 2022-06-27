@@ -18,7 +18,7 @@ class PontuacoesPremiosRepository implements IPontuacoesPremiosRepository {
       .select("pontuacoes_premios.id")
       .addSelect("pontuacoes_premios.titulo")
       .addSelect("pontuacoes_premios.descricao")
-      .addSelect("CONCAT('https://',pontuacoes_premios.foto)")
+      .addSelect("pontuacoes_premios.foto")
       .addSelect("pontuacoes_premios.pontos")
       .addSelect("pontuacoes_premios.estabelecimento_id")
       .addSelect("pontuacoes_premios.status")
