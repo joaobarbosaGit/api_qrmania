@@ -3,6 +3,7 @@ import { getRepository, Repository } from "typeorm";
 import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
 import { Users } from "../entities/Users";
 import { AppError } from "@shared/erros/AppError";
+import { IUsersDTO } from "@modules/users/dtos/IUsersDTO";
 
 class UsersRepository implements IUsersRepository {
   private repository: Repository<Users>;
@@ -67,6 +68,51 @@ class UsersRepository implements IUsersRepository {
     }
 
     return user;
+  }
+
+  async updateUser({
+    id,
+    name,
+    email,
+    password,
+    cpf_cnpj,
+    telefone,
+    uf,
+    cidade,
+    avatar,
+    endereco,
+    endereco_numero,
+    endereco_bairro,
+    endereco_cep,
+    data_nascimento,
+  }: IUsersDTO): Promise<void> {
+    const user = await this.repository.findOne(id);
+
+    if (!user) {
+      throw new AppError("Usuario nao cadastrado!");
+    }
+
+    user.name = name ? name : user.name;
+    user.email = email ? email : user.email;
+    user.password = password ? password : user.password;
+    user.cpf_cnpj = cpf_cnpj ? cpf_cnpj : user.cpf_cnpj;
+    user.telefone = telefone ? telefone : user.telefone;
+    user.uf = uf ? uf : user.uf;
+    user.cidade = cidade ? cidade : user.cidade;
+    user.avatar = avatar ? avatar : user.avatar;
+    user.endereco = endereco ? endereco : user.endereco;
+    user.endereco_numero = endereco_numero
+      ? endereco_numero
+      : user.endereco_numero;
+    user.endereco_bairro = endereco_bairro
+      ? endereco_bairro
+      : user.endereco_bairro;
+    user.endereco_cep = endereco_cep ? endereco_cep : user.endereco_cep;
+    user.data_nascimento = data_nascimento
+      ? data_nascimento
+      : user.data_nascimento;
+
+    await this.repository.save(user);
   }
 }
 
