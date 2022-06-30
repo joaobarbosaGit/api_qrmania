@@ -16,7 +16,12 @@ class ListAllRewardsAndRedemptionPointsUseCase {
       await this.pontuacoesPremiosRepository.listAllRewardsAndRedemptionPoints(
         user_id
       );
-
+    
+    let i = 0;  
+    for (const qrcode of qrcode_fidelidade) {  
+      qrcode_fidelidade[i]['foto'] = "https://"+qrcode_fidelidade[i]['foto']; 
+      i++;
+    }  
     return qrcode_fidelidade;
   }
 }

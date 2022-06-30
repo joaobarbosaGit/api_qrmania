@@ -20,7 +20,7 @@ class ListAllRedemptionScoresUseCase {
         user_id,
         idlojista
       );
-
+        
     return pontuacoes_regates;
   }
 }
