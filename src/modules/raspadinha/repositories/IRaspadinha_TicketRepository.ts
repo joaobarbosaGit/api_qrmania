@@ -7,6 +7,7 @@ interface IRaspadinha_TicketRepository {
     idraspadinha_tickets: number
   ): Promise<Raspadinha_Ticket | AppError>;
   updateRaspado(idraspadinha_tickets: number): Promise<string>;
+  getPremioByRaspadinhaTicket(idraspadinha_tickets: number): Promise<string>;
 }
 
 export { IRaspadinha_TicketRepository };

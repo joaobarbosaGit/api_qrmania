@@ -3,12 +3,16 @@ import { getRepository, Repository } from "typeorm";
 import { AppError } from "@shared/erros/AppError";
 import { IRaspadinha_TicketRepository } from "@modules/raspadinha/repositories/IRaspadinha_TicketRepository";
 import { Raspadinha_Ticket } from "../entities/Raspadinha_Ticket";
+import { Raspadinha_Premios } from "../entities/Raspadinha_Premios";
+
 
 class Raspadinha_TicketRepository implements IRaspadinha_TicketRepository {
   private repository: Repository<Raspadinha_Ticket>;
+  private repositoryRaspadinhaPremio: Repository<Raspadinha_Premios>;
 
   constructor() {
     this.repository = getRepository(Raspadinha_Ticket);
+    this.repositoryRaspadinhaPremio = getRepository(Raspadinha_Premios);
   }
 
   async listAllRaspadinha_TicketByUser(
@@ -75,6 +79,21 @@ class Raspadinha_TicketRepository implements IRaspadinha_TicketRepository {
     return Object.assign({
       mensagem: "raspadinha atualizada com sucesso",
     });
+  }
+
+  async getPremioByRaspadinhaTicket(idraspadinha_tickets: number): Promise<string>{
+    const raspadinhaticket = await this.repository
+      .findOne(idraspadinha_tickets);
+
+    const premio = await this.repositoryRaspadinhaPremio.findOne(raspadinhaticket?.raspadinha_premios_id);  
+
+    
+    if(!premio){
+      throw new AppError("Premio não localizado!");
+    }
+     
+
+    return premio?.foto as unknown as string;
   }
 }
 

@@ -5,6 +5,7 @@ import { ListRaspadinhaPremiosByRaspadinhaController } from "@modules/raspadinha
 import { isRaspadoController } from "@modules/raspadinha/useCase/isRaspado/isRaspadoController";
 import { UpdateRaspadoController } from "@modules/raspadinha/useCase/updateRaspado/UpdateRaspadoController";
 import { ListAllRaspadinhaByUserByPremiosController } from "@modules/raspadinha/useCase/listAllRaspadinhasByUserByPremios/ListAllRaspadinhaByUserByPremiosController";
+import { GetPremioByRaspadinhaTicketController } from "@modules/raspadinha/useCase/getPremioByRaspadinhaTicket/GetPremioByRaspadinhaTicketController";
 
 const raspadinhaRoutes = Router();
 
@@ -16,6 +17,7 @@ const listRaspadinhaPremiosByRaspadinhaController =
   new ListRaspadinhaPremiosByRaspadinhaController();
 const israspadoController = new isRaspadoController();
 const updateRaspadoController = new UpdateRaspadoController();
+const getPremioByRaspadinhaTicketController = new GetPremioByRaspadinhaTicketController();
 
 raspadinhaRoutes.post(
   "/listraspadinhabyuser",
@@ -32,5 +34,6 @@ raspadinhaRoutes.post(
 );
 //raspadinhaRoutes.post("/israspado", israspadoController.handle);
 raspadinhaRoutes.put("/updateraspado", updateRaspadoController.handle);
+raspadinhaRoutes.post("/getpremiobyraspadinhaticket", getPremioByRaspadinhaTicketController.handle);
 
 export { raspadinhaRoutes };
